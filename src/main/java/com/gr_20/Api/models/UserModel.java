@@ -1,6 +1,15 @@
 package com.gr_20.Api.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class UserModel {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     private String name;
@@ -41,6 +50,22 @@ public class UserModel {
 
     public String generateReport () {
         return name + " is currently " + status +". You can contact them at: " + email;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
